@@ -12,6 +12,8 @@ namespace QRCodeGerador
 {
     public partial class Form1 : Form
     {
+        public object QG { get; private set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +22,14 @@ namespace QRCodeGerador
         private void label2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            QRCoder.QRCodeGenerator QG = new QRCoder.QRCodeGenerator();
+            var MyData = QG.CreateQrCode(txtQR.Text, QRCoder.QRCodeGenerator.ECCLevel.H);
+            var code = new QRCoder.QRCode(MyData);
+            pictureBox1.Image = code.GetGraphic(50);
         }
     }
 }
