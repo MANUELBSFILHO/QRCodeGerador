@@ -31,5 +31,15 @@ namespace QRCodeGerador
             var code = new QRCoder.QRCode(MyData);
             pictureBox1.Image = code.GetGraphic(50);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
